@@ -16,6 +16,8 @@ class TabBarWidegt extends StatelessWidget {
       } else if (movieState.isError) {
         return Text('${movieState.errText}');
       } else {
+
+
         return GridView.builder(
             itemCount: movieState.movies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
