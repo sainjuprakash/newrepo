@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -78,7 +77,7 @@ class Myapp extends StatelessWidget {
     return  GetMaterialApp(
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: home(),
+      home: const HomePage(),
     );
   }
 }

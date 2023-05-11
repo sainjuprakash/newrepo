@@ -17,8 +17,8 @@ class Movie {
     required this.title,
     required this.vote_average,
   });
-factory Movie.fromJson(Map<String, dynamic> json){
 
+factory Movie.fromJson(Map<String, dynamic> json){
   return Movie(
       id: json['id'],
       backdrop_path: json['backdrop_path'],
@@ -26,7 +26,7 @@ factory Movie.fromJson(Map<String, dynamic> json){
       poster_path: json['poster_path'],
       release_date: json['release_date'],
       title: json['title'],
-      vote_average: json['vote_average']
+      vote_average: double.tryParse(json['vote_average'].toString()) ?? 0.0 // changing to double value
   );
 
 }

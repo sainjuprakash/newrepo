@@ -10,16 +10,17 @@ final movieProvider = StateNotifierProvider<MovieProvider, MovieState>((ref) =>
         isError: false,
         isSuccess: false,
         movies: [],
-        api: api.getpopular,
+        api: API.getPopular,
         page: 1)));
 
 class MovieProvider extends StateNotifier<MovieState> {
   MovieProvider(super.state){
    getMovieByCategory();
   }
+
   Future<void> getMovieByCategory() async {
     state = state.CopyWith(isLoad: true, isError: false, isSuccess: false);
-    final response = await MovieService.getMovieByCategory(
+    final response = await MovieService().getMovieByCategory(
         apiPath: state.api, page: state.page);
     response.fold(
       (l) => state = state.CopyWith(

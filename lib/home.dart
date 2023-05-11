@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'tab_bar_widget.dart';
 
-class home extends StatelessWidget {
-  const home({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class home extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            TabBarWidegt(),
+            TabBarWidget(),
             Text('Top rated'),
             Text('upcoming'),
           ],
