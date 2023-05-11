@@ -7,7 +7,7 @@ enum MovieCategory {
 }
 
 class MovieState {
-  
+
   final List<Movie> movies;
   final bool isLoad;
   final bool isError;
