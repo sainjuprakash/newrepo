@@ -78,7 +78,7 @@ class Myapp extends StatelessWidget {
     return  GetMaterialApp(
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: home(),
+      home: const HomePage(),
     );
   }
 }
