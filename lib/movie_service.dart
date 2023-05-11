@@ -1,15 +1,19 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:movie/constants.dart';
 import 'package:movie/movie.dart';
 import 'package:dartz/dartz.dart';
 import 'constants.dart';
 
+<<<<<<< HEAD
 //const apikey = '5e7b378087369f96eacb5636df62973a';
+=======
+
+>>>>>>> dc50674672ddbae3c3582bcf95c8fe2c537cd596
 
 class MovieService {
-  static final dio = Dio();
+  final dio = Dio();
 
-  static Future<Either<String, List<Movie>>> getMovieByCategory(
+   Future<Either<String, List<Movie>>> getMovieByCategory(
       {required String apiPath, required int page}) async {
     try {
       final response = await dio

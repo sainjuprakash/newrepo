@@ -8,6 +8,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'constants.dart';
 
+<<<<<<< HEAD
 class TabBarWidegt extends StatelessWidget {
   final MovieCategory movieCategory;
   const TabBarWidegt({Key? key ,required this.movieCategory}) : super(key: key);
@@ -18,6 +19,17 @@ class TabBarWidegt extends StatelessWidget {
         builder: (context, ref, child) {
       final movieState =movieCategory == MovieCategory.popular ? ref.watch(popularProvider):
       movieCategory== MovieCategory.topRated ? ref.watch(topRatedProvider): ref.watch(upcomingProvider);
+=======
+import 'constants.dart';
+
+class TabBarWidget extends StatelessWidget {
+  const TabBarWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(builder: (context, ref, child) {
+      final movieState = ref.watch(movieProvider);
+>>>>>>> dc50674672ddbae3c3582bcf95c8fe2c537cd596
       if (movieState.isLoad) {
         return const Center(child: CircularProgressIndicator());
       } else if (movieState.isError) {
@@ -27,6 +39,7 @@ class TabBarWidegt extends StatelessWidget {
             itemCount: movieState.movies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
+<<<<<<< HEAD
               mainAxisSpacing: 10,
              crossAxisSpacing: 10,
              // mainAxisExtent: 3,
@@ -41,6 +54,18 @@ class TabBarWidegt extends StatelessWidget {
                 ),
                 imageUrl:  "${Constants.imageLeadingUrl}${movieState.movies[index].poster_path}"
 
+=======
+              mainAxisSpacing: 3,
+              crossAxisSpacing: 3,
+              // mainAxisExtent: 3,
+              // childAspectRatio: 2 / 3,
+            ),
+            itemBuilder: (context, index) {
+              return Image.network(
+                "${Constants.imageLeadingUrl}${movieState.movies[index].poster_path}",
+                height: 30,
+                width: 30,
+>>>>>>> dc50674672ddbae3c3582bcf95c8fe2c537cd596
               );
             });
       }
