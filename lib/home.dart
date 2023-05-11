@@ -56,15 +56,9 @@ class HomePage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-<<<<<<< HEAD
             TabBarWidegt(movieCategory: MovieCategory.popular,),
             TabBarWidegt(movieCategory: MovieCategory.topRated,),
             TabBarWidegt(movieCategory: MovieCategory.upcoming,),
-=======
-            TabBarWidget(),
-            Text('Top rated'),
-            Text('upcoming'),
->>>>>>> dc50674672ddbae3c3582bcf95c8fe2c537cd596
           ],
         ),
       ),
