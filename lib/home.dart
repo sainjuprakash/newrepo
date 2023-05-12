@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:movie/movie_state.dart';
+import 'package:movie/search_page.dart';
 import 'tab_bar_widget.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -28,7 +33,9 @@ class HomePage extends StatelessWidget {
                       color: Colors.amber),
                 )),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(()=> SearchPage());
+                  },
                   icon: const Icon(Icons.search),
                   iconSize: 35,
                 ),
@@ -56,9 +63,9 @@ class HomePage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            TabBarWidegt(movieCategory: MovieCategory.popular,),
-            TabBarWidegt(movieCategory: MovieCategory.topRated,),
-            TabBarWidegt(movieCategory: MovieCategory.upcoming,),
+            TabBarWidegt(movieCategory: MovieCategory.popular,pageKey: 'popular',),
+            TabBarWidegt(movieCategory: MovieCategory.topRated,pageKey: 'topRated',),
+            TabBarWidegt(movieCategory: MovieCategory.upcoming,pageKey: 'upcoming',),
           ],
         ),
       ),

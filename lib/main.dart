@@ -51,7 +51,8 @@ import 'package:movie/home.dart';
 // }
 
 
-void main(){
+void main()async {
+  await Future.delayed(Duration(milliseconds: 5));
   runApp(const ProviderScope(child: Myapp()));
 // //getSome().then((value) => print(value)).catchError((err)=>print(err));
 //   try{

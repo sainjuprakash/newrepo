@@ -21,11 +21,11 @@ class Movie {
 factory Movie.fromJson(Map<String, dynamic> json){
   return Movie(
       id: json['id'],
-      backdrop_path: json['backdrop_path'],
+      backdrop_path: json['backdrop_path'].toString(),
       overview: json['overview'],
-      poster_path: json['poster_path'],
-      release_date: json['release_date'],
-      title: json['title'],
+      poster_path: json['poster_path'].toString(),
+      release_date: json['release_date'].toString(),
+      title: json['title'].toString(),
       vote_average: json['vote_average'].toString() // changing to double value// changing to double value
 
   );
