@@ -12,7 +12,8 @@ final searchProvider = StateNotifierProvider<MovieProvider, MovieState>((ref) =>
         isSuccess: false,
         movies: [],
         api: api.getSearch,
-        page: 1)));
+        page: 1,
+    isLoadMore: false)));
 
 class MovieProvider extends StateNotifier<MovieState> {
   MovieProvider(super.state);
@@ -35,4 +36,5 @@ class MovieProvider extends StateNotifier<MovieState> {
           movies: r),
     );
   }
+
 }

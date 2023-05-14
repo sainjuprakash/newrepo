@@ -19,22 +19,29 @@ class TabBarWidegt extends StatelessWidget {
               ? ref.watch(topRatedProvider)
               : ref.watch(upcomingProvider);
 
-      if (movieState.isLoad) {
+      if (movieState.isLoad==true) {
         return const Center(child: CircularProgressIndicator());
       } else if (movieState.isError) {
         return Text(movieState.errText);
       } else {
         return NotificationListener(
           onNotification: (ScrollEndNotification onNotification) {
-            print("hello");
+            // print("hello");
             final before = onNotification.metrics.extentBefore;
             final max = onNotification.metrics.maxScrollExtent;
             print(before);
             print(max);
-            // if (before == max) {
-            //   print('hello');
-            //
-            // }
+            if (before == max) {
+             if(movieCategory==MovieCategory.popular)
+               {
+                 ref.read(popularProvider.notifier).LoadMore();
+               }else if(movieCategory==MovieCategory.topRated){
+               ref.read(topRatedProvider.notifier).LoadMore();
+             }else{
+               ref.read(upcomingProvider.notifier).LoadMore();
+             }
+
+            }
             return true;
           },
           child: GridView.builder(

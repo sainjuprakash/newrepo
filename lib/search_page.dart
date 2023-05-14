@@ -47,7 +47,7 @@ class SearchPage extends StatelessWidget {
                             childAspectRatio: 2 / 3,
                           ),
                           itemBuilder: (context, index) {
-                            final movie = movieState.movies[index];
+                         //   final movie = movieState.movies[index];
                             //print("Movie info: $movie of index $index" );
                             return CachedNetworkImage(
                               //ekchati load vaesakeko img feri load garna naparne gare

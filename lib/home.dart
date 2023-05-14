@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:movie/movie_state.dart';
 import 'package:movie/search_page.dart';
 import 'tab_bar_widget.dart';

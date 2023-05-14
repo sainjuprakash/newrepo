@@ -11,7 +11,8 @@ final popularProvider = StateNotifierProvider<MovieProvider, MovieState>(
         isSuccess: false,
         movies: [],
         api: api.getPopular,
-        page: 1)));
+        page: 1,
+        isLoadMore: false)));
 
 final topRatedProvider = StateNotifierProvider<MovieProvider, MovieState>(
     (ref) => MovieProvider(MovieState(
@@ -21,7 +22,8 @@ final topRatedProvider = StateNotifierProvider<MovieProvider, MovieState>(
         isSuccess: false,
         movies: [],
         api: api.getTopRated,
-        page: 1)));
+        page: 1,
+        isLoadMore: false)));
 
 final upcomingProvider = StateNotifierProvider<MovieProvider, MovieState>(
     (ref) => MovieProvider(MovieState(
@@ -31,14 +33,15 @@ final upcomingProvider = StateNotifierProvider<MovieProvider, MovieState>(
         isSuccess: false,
         movies: [],
         api: api.getUpcoming,
-        page: 1)));
+        page: 1,
+        isLoadMore: false)));
 
 class MovieProvider extends StateNotifier<MovieState> {
   MovieProvider(super.state) {
     getMovieByCategory();
   }
   Future<void> getMovieByCategory() async {
-    state = state.CopyWith(isLoad: true, isError: false, isSuccess: false);
+    state = state.CopyWith(isLoad: state.isLoadMore ? false:true, isError: false, isSuccess: false);
     final response = await MovieService.getMovieByCategory(
         apiPath: state.api, page: state.page);
     response.fold(
@@ -53,7 +56,12 @@ class MovieProvider extends StateNotifier<MovieState> {
           isError: false,
           errText: '',
           isLoad: false,
-          movies: r),
+          movies: [...state.movies, ...r]),
     );
+  }
+
+  Future<void> LoadMore() async {
+    state = state.CopyWith(isLoadmore:true,page: state.page + 1);
+    getMovieByCategory();
   }
 }

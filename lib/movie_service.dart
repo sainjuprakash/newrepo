@@ -35,7 +35,7 @@ class MovieService {
       final data = (response.data['results'] as List)
           .map((e) => Movie.fromJson(e))
           .toList();
-      print(response.data);
+      //print(response.data);
       return right(data);
     } on DioError catch (err) {
       print(err.response);

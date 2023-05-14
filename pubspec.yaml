@@ -46,11 +46,11 @@ dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/icon.webp
+  image: assets/images/loginph.jpg
   color_dark: "#121212"
 
   android_12:
-    image: assets/images/icon.webp
+    image: assets/images/loginph.jpg
     icon_background_color: "#ffffff"
 
 dev_dependencies:
@@ -60,7 +60,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/icon.webp"
+  image_path: "assets/images/loginph.jpg"
   min_sdk_android: 21 # android min sdk min:16, default 21
 
 
